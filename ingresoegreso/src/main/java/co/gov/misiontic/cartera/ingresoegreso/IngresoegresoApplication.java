@@ -1,5 +1,6 @@
 package co.gov.misiontic.cartera.ingresoegreso;
 
+import co.gov.misiontic.cartera.ingresoegreso.models.entity.Empleado;
 import co.gov.misiontic.cartera.ingresoegreso.models.entity.Empresa;
 import co.gov.misiontic.cartera.ingresoegreso.models.entity.MovimientoDinero;
 import org.springframework.boot.SpringApplication;
@@ -17,9 +18,21 @@ public class IngresoegresoApplication {
 		emp.setDireccion("Overland Park, Kansas, 10801 Mastin St # 620, Overland Park");
 		emp.setTelefoto("+1 913-323-1200");
 		emp.setNIT("8300518875");
-		System.out.println("Nombre compañía: " + emp.getNombre()+" NIT: "+ emp.getNIT());
+		System.out.println("Nombre compañía: " + emp.getNombre() + " NIT: "+ emp.getNIT());
 		System.out.println(emp);
+
+
 		//Empleado
+		Empleado usuario = new Empleado();
+		usuario.setIdEmpleado(1);
+		usuario.setNombre("Alfonso");
+		usuario.setCorreo("dilmervelanida@gmail.com");
+		usuario.setPassword("a1b2c3d4");
+		usuario.setRol("Admin");
+		usuario.setEmpresa("POWER DEVELOPERS INC.");
+		System.out.println("Nombre: " + usuario.getNombre()+" Correo: "+ usuario.getCorreo()+"Empresa:" + usuario.getEmpresa());
+		System.out.println("Rol:" + usuario.getRol());
+
 
 		//Movimiento
 		MovimientoDinero movimiento = new MovimientoDinero();
