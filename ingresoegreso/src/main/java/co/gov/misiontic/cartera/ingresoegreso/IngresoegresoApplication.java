@@ -16,7 +16,7 @@ public class IngresoegresoApplication {
 		emp.setIdEmpresa(1);
 		emp.setNombre("POWER DEVELOPERS INC.");
 		emp.setDireccion("Overland Park, Kansas, 10801 Mastin St # 620, Overland Park");
-		emp.setTelefoto("+1 913-323-1200");
+		emp.setTelefono("+1 913-323-1200");
 		emp.setNIT("8300518875");
 		System.out.println("Nombre compañía: " + emp.getNombre() + " NIT: "+ emp.getNIT());
 		System.out.println(emp);

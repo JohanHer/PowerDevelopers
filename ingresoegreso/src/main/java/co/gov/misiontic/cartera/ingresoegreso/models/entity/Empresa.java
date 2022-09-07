@@ -7,6 +7,6 @@ public class Empresa {
     private long idEmpresa;
     private String nombre;
     private String direccion;
-    private String telefoto;
+    private String telefono;
     private String NIT;
 }
