@@ -2,6 +2,8 @@ package co.gov.misiontic.cartera.ingresoegreso.controller;
 
 import co.gov.misiontic.cartera.ingresoegreso.models.entity.Rol;
 import co.gov.misiontic.cartera.ingresoegreso.models.entity.TipoDocumento;
+import co.gov.misiontic.cartera.ingresoegreso.service.ITipoDocumentoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -12,54 +14,31 @@ import java.util.List;
 
 public class TipoDocumentoRestcontroller {
 
+    @Autowired
+    private ITipoDocumentoService docTypeService;
+
     @GetMapping("/tipoDocumento/{id}")
     public TipoDocumento findById(@PathVariable int id){
-        TipoDocumento tipoDocumento = new TipoDocumento();
-        tipoDocumento.setIdTipoDocumento(id);
-        tipoDocumento.setDescripcion("Cédula de ciudadania");
-        tipoDocumento.setSiglas("CC");
-        tipoDocumento.setEstado(true);
-        return tipoDocumento;
+        return docTypeService.findId(id);
     }
 
     @GetMapping("/tipoDocumento")
     public List<TipoDocumento> findAll(){
-        List<TipoDocumento> tiposDeDocumento = new ArrayList<TipoDocumento>();
-        TipoDocumento tipoDocumento1 = new TipoDocumento();
-        tipoDocumento1.setIdTipoDocumento(1);
-        tipoDocumento1.setDescripcion("Cédula de ciudadania");
-        tipoDocumento1.setSiglas("CC");
-        tipoDocumento1.setEstado(true);
-        tiposDeDocumento.add(tipoDocumento1);
-        TipoDocumento tipoDocumento2 = new TipoDocumento();
-        tipoDocumento2.setIdTipoDocumento(2);
-        tipoDocumento2.setDescripcion("Tarjeta de identidad");
-        tipoDocumento2.setSiglas("TI");
-        tipoDocumento2.setEstado(true);
-        tiposDeDocumento.add(tipoDocumento2);
-        return tiposDeDocumento;
+        return docTypeService.findAll();
     }
 
     @PostMapping("/tipoDocumento")
-    public TipoDocumento createRol(@RequestBody TipoDocumento tipoDocumento){
-        TipoDocumento newTipoDocumento = new TipoDocumento();
-        newTipoDocumento.setDescripcion(tipoDocumento.getDescripcion());
-        newTipoDocumento.setSiglas(tipoDocumento.getSiglas());
-        newTipoDocumento.setEstado(tipoDocumento.isEstado());
-        return newTipoDocumento;
+    public TipoDocumento createDocType(@RequestBody TipoDocumento tipoDocumento){
+        return docTypeService.createDocType(tipoDocumento);
     }
 
     @PutMapping("/tipoDocumento/{id}")
-    public TipoDocumento updateRol(@PathVariable int id, @RequestBody TipoDocumento tipoDocumento){
-        TipoDocumento putTipoDocumento = findById(id);
-        putTipoDocumento.setDescripcion(tipoDocumento.getDescripcion());
-        putTipoDocumento.setSiglas(tipoDocumento.getSiglas());
-        putTipoDocumento.setEstado(tipoDocumento.isEstado());
-        return putTipoDocumento;
+    public TipoDocumento updateDocType(@PathVariable int id, @RequestBody TipoDocumento tipoDocumento){
+        return docTypeService.updateDocType(id, tipoDocumento);
     }
 
     @DeleteMapping("/tipoDocumento/{id}")
     public void deleteRol(@PathVariable int id){
-        TipoDocumento deleteRol = findById(id);
+        docTypeService.deleteDocType(id);
     }
 }

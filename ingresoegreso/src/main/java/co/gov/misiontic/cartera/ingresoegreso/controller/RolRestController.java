@@ -13,40 +13,31 @@ import java.util.List;
 public class RolRestController {
 
     @Autowired
-    private IRolService rolService;
+    private IRolService RolService;
 
     @GetMapping("/rol/{id}")
     public Rol findById(@PathVariable int id){
-        return rolService.findById(id);
+        return RolService.findById(id);
     }
 
     @GetMapping("/rol")
     public List<Rol> findAll(){
-        return rolService.findAll();
+        return RolService.findAll();
     }
 
     @PostMapping("/rol")
     public Rol createRol(@RequestBody Rol rol){
-        return rolService.createRol(rol);
+        return RolService.createRol(rol);
     }
 
     @PutMapping("/rol/{id}")
     public Rol updateRol(@PathVariable int id, @RequestBody Rol rol){
-        return rolService.updateRol(id, rol);
+        return RolService.updateRol(id, rol);
     }
 
     @DeleteMapping("/rol/{id}")
     public void deleteRol(@PathVariable int id){
-        rolService.deleteRol(id);
+        RolService.deleteRol(id);
 
     }
-
-    @PutMapping("/rol")
-    public Rol updateRol(@PathVariable int id, @RequestBody Rol rol){
-        Rol UpdateRol = findById(id);
-
-        UpdateRol.setIdRol(id);
-        UpdateRol.setDescripcion("Admin");
-        UpdateRol.setEstado(true);
-        return rol;
 }

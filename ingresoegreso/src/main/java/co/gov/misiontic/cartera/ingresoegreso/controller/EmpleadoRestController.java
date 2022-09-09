@@ -2,7 +2,6 @@ package co.gov.misiontic.cartera.ingresoegreso.controller;
 
 
 import co.gov.misiontic.cartera.ingresoegreso.models.entity.Empleado;
-import co.gov.misiontic.cartera.ingresoegreso.service.EmpleadoService;
 import co.gov.misiontic.cartera.ingresoegreso.service.IEmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,7 @@ import java.util.List;
 public class EmpleadoRestController {
 
     @Autowired
-    private IEmpleadoService empleadoService;
+    private IEmpleadoService EmpleadoService;
 
     @GetMapping("/empleado/{id}")
     public Empleado findById(@PathVariable int id){
@@ -23,22 +22,22 @@ public class EmpleadoRestController {
 
     @GetMapping("/empleado")
     public List<Empleado> findAll(){
-        return this.empleadoService.findAll();
+        return this.EmpleadoService.findAll();
     }
 
     @PostMapping("/empleado")
     public Empleado createEmpleado (@RequestBody Empleado empleado){
-        return this.empleadoService.createEmpleado(empleado);
+        return this.EmpleadoService.createEmpleado(empleado);
     }
 
     @PutMapping("/empleado")
-    public Empleado updateempleado(@RequestBody Empleado empleado){
-        return this.empleadoService.updateEmpleado(empleado);
+    public Empleado updateEmpleado(@PathVariable int id, @RequestBody Empleado empleado){
+        return this.EmpleadoService.updateEmpleado(id, empleado);
     }
 
     @DeleteMapping("/empleado/{id}")
-    public void deleteEmpleado(@PathVariable long id){
-        this.empleadoService.deleteEmpleado(id);
+    public void deleteEmpleado(@PathVariable int id){
+        this.EmpleadoService.deleteEmpleado(id);
     }
 
 }

@@ -1,6 +1,7 @@
 package co.gov.misiontic.cartera.ingresoegreso.service;
 
 import co.gov.misiontic.cartera.ingresoegreso.models.entity.Rol;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class RolService implements IRolService{
 
     @Override
     public List<Rol> findAll() {
-        List<Rol> roles = new ArrayList<Rol>();
+        List<Rol> roles = new ArrayList<>();
         Rol rol1 = new Rol();
         rol1.setIdRol(1);
         rol1.setDescripcion("Admin");
@@ -36,16 +37,15 @@ public class RolService implements IRolService{
 
     @Override
     public Rol createRol(Rol rol) {
-        return null;
         Rol newRol = new Rol();
-        newRol.setDescripcion(rol.getDescripcion());
-        newRol.setEstado(rol.isEstado());
+        newRol.setIdRol(1);
+        newRol.setDescripcion("Admin");
+        newRol.setEstado(true);
         return newRol;
     }
 
     @Override
-    public Rol updateRol(int id, Rol rol) {
-        return null;
+    public Rol updateRol(int id, @NotNull Rol rol) {
         Rol putRol = findById(id);
         putRol.setDescripcion(rol.getDescripcion());
         putRol.setEstado(rol.isEstado());
