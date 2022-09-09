@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class Rol {
 
-    private String isRol;
+    private long idRol;
     private String descripcion;
     private boolean estado;
 

@@ -6,10 +6,13 @@ import lombok.Data;
 public class Empleado {
 
     private long idEmpleado;
-    private String Nombre;
-    private String Correo;
-    private String Password;
-    private String Empresa;
-    private String Rol;
+    private String nombre;
+    private String apellido;
+    private String cedula;
+    private String correo;
+    private String password;
+    private String empresa;
+    private Rol rol;
+    private boolean estado;
 
 }
