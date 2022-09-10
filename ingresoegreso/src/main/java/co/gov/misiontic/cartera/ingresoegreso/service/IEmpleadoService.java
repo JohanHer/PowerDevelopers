@@ -9,7 +9,7 @@ import java.util.List;
 public interface IEmpleadoService {
     public Empleado findById(@PathVariable int id);
 
-    Empleado createEmpleado(Empleado empleado, Rol rol);
+    Empleado createEmpleado(Empleado empleado);
 
     Empleado updateEmpleado(int id, Empleado empleado);
 

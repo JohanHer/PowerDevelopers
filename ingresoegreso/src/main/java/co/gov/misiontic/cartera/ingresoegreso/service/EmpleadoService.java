@@ -16,11 +16,11 @@ public class EmpleadoService implements IEmpleadoService {
         Empleado usuario = new Empleado();
         Rol rol = new Rol();
         usuario.setIdEmpleado(id);
-        usuario.setNombre("Alfonso");
-        usuario.setApellido("Velandia");
-        usuario.setCedula("152707033");
+        usuario.setNombre("marco");
+        usuario.setApellido("perez");
+        usuario.setCedula("123456789");
         usuario.setEstado(true);
-        usuario.setCorreo("dilmervelanida@gmail.com");
+        usuario.setCorreo("ejemplo@gmail.com");
         usuario.setPassword("a1b2c3d4");
         rol.setIdRol(1);
         rol.setDescripcion("Admin");
@@ -30,8 +30,8 @@ public class EmpleadoService implements IEmpleadoService {
         return usuario;
     }
 
-    @Override
-    public Empleado createEmpleado(Empleado empleado, Rol rol) {
+
+    public Empleado createEmpleado(Empleado empleado) {
         Empleado newUser = new Empleado();
         Rol newRol = new Rol();
         newUser.setIdEmpleado(empleado.getIdEmpleado());
@@ -41,11 +41,12 @@ public class EmpleadoService implements IEmpleadoService {
         newUser.setEstado(empleado.isEstado());
         newUser.setCorreo(empleado.getCorreo());
         newUser.setPassword(empleado.getPassword());
-        newRol.setIdRol(1);
-        newRol.setDescripcion("Admin");
-        newRol.setEstado(true);
         newUser.setRol(newRol);
         newUser.setEmpresa(empleado.getEmpresa());
+        //newRol.setIdRol(1);
+        //newRol.setDescripcion("Admin");
+        //newRol.setEstado(true);
+
         return newUser;
     }
 

@@ -27,8 +27,8 @@ public class EmpleadoRestController {
     }
 
     @PostMapping("/empleado")
-    public Empleado createEmpleado (@RequestBody Empleado empleado, @RequestBody Rol rol){
-        return EmpleadoService.createEmpleado(empleado, rol);
+    public Empleado createEmpleado (@RequestBody Empleado empleado){
+        return this.EmpleadoService.createEmpleado(empleado);
     }
 
     @PutMapping("/empleado")
