@@ -15,8 +15,11 @@ public class EmpleadoService implements IEmpleadoService {
     public Empleado findById(int id) {
         Empleado usuario = new Empleado();
         Rol rol = new Rol();
-        usuario.setIdEmpleado(1);
+        usuario.setIdEmpleado(id);
         usuario.setNombre("Alfonso");
+        usuario.setApellido("Velandia");
+        usuario.setCedula("152707033");
+        usuario.setEstado(true);
         usuario.setCorreo("dilmervelanida@gmail.com");
         usuario.setPassword("a1b2c3d4");
         rol.setIdRol(1);
@@ -28,29 +31,35 @@ public class EmpleadoService implements IEmpleadoService {
     }
 
     @Override
-    public Empleado createEmpleado(Empleado empleado) {
-        Empleado usuario = new Empleado();
-        Rol rol = new Rol();
-        usuario.setIdEmpleado(1);
-        usuario.setNombre("Alfonso");
-        usuario.setCorreo("dilmervelanida@gmail.com");
-        usuario.setPassword("a1b2c3d4");
-        rol.setIdRol(1);
-        rol.setDescripcion("Admin");
-        rol.setEstado(true);
-        usuario.setRol(rol);
-        usuario.setEmpresa("POWER DEVELOPERS INC.");
-        return usuario;
+    public Empleado createEmpleado(Empleado empleado, Rol rol) {
+        Empleado newUser = new Empleado();
+        Rol newRol = new Rol();
+        newUser.setIdEmpleado(empleado.getIdEmpleado());
+        newUser.setNombre(empleado.getNombre());
+        newUser.setApellido(empleado.getApellido());
+        newUser.setCedula(empleado.getCedula());
+        newUser.setEstado(empleado.isEstado());
+        newUser.setCorreo(empleado.getCorreo());
+        newUser.setPassword(empleado.getPassword());
+        newRol.setIdRol(1);
+        newRol.setDescripcion("Admin");
+        newRol.setEstado(true);
+        newUser.setRol(newRol);
+        newUser.setEmpresa(empleado.getEmpresa());
+        return newUser;
     }
 
     @Override
     public Empleado updateEmpleado(int id, Empleado empleado) {
         Empleado usuario = findById(id);
         Rol rol = new Rol();
-        usuario.setIdEmpleado(1);
+        usuario.setIdEmpleado(id);
         usuario.setNombre(usuario.getNombre());
+        usuario.setApellido(usuario.getApellido());
+        usuario.setCedula(usuario.getCedula());
         usuario.setCorreo(usuario.getCorreo());
         usuario.setPassword(usuario.getPassword());
+        usuario.setEstado(usuario.isEstado());
         rol.setIdRol(rol.getIdRol());
         rol.setDescripcion(rol.getDescripcion());
         rol.setEstado(rol.isEstado());
@@ -71,6 +80,9 @@ public class EmpleadoService implements IEmpleadoService {
             Rol rol = new Rol();
             usuario.setIdEmpleado(emp);
             usuario.setNombre("Alfonso");
+            usuario.setApellido("Velandia");
+            usuario.setCedula("152707033");
+            usuario.setEstado(true);
             usuario.setCorreo("dilmervelanida@gmail.com");
             usuario.setPassword("a1b2c3d4");
             rol.setIdRol(1);

@@ -35,10 +35,10 @@ public class MovimientoDineroService implements IMovimientoDineroService{
     @Override
     public MovimientoDinero createMovement(MovimientoDinero moneyMov) {
         MovimientoDinero movimiento = new MovimientoDinero();
-        movimiento.setIdMovimiento(1);
-        movimiento.setMonto("999999999");
-        movimiento.setConcepto("Concepto");
-        movimiento.setUsuario("User");
+        movimiento.setIdMovimiento(moneyMov.getIdMovimiento());
+        movimiento.setMonto(moneyMov.getMonto());
+        movimiento.setConcepto(moneyMov.getConcepto());
+        movimiento.setUsuario(moneyMov.getUsuario());
         return movimiento;
     }
 
