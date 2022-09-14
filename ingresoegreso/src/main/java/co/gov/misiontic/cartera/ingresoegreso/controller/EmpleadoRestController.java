@@ -31,7 +31,7 @@ public class EmpleadoRestController {
         return this.EmpleadoService.createEmpleado(empleado);
     }
 
-    @PutMapping("/empleado")
+    @PutMapping("/empleado/{id}")
     public Empleado updateEmpleado(@PathVariable int id, @RequestBody Empleado empleado){
         return this.EmpleadoService.updateEmpleado(id, empleado);
     }

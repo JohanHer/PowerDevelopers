@@ -34,6 +34,7 @@ public class EmpleadoService implements IEmpleadoService {
     public Empleado createEmpleado(Empleado empleado) {
         Empleado newUser = new Empleado();
         Rol newRol = new Rol();
+        Rol rol = empleado.getRol();
         newUser.setIdEmpleado(empleado.getIdEmpleado());
         newUser.setNombre(empleado.getNombre());
         newUser.setApellido(empleado.getApellido());
@@ -41,29 +42,30 @@ public class EmpleadoService implements IEmpleadoService {
         newUser.setEstado(empleado.isEstado());
         newUser.setCorreo(empleado.getCorreo());
         newUser.setPassword(empleado.getPassword());
-        newUser.setRol(newRol);
         newUser.setEmpresa(empleado.getEmpresa());
-        //newRol.setIdRol(1);
-        //newRol.setDescripcion("Admin");
-        //newRol.setEstado(true);
-
+        newRol.setIdRol(rol.getIdRol());
+        newRol.setDescripcion(rol.getDescripcion());
+        newRol.setEstado(rol.isEstado());
+        newUser.setRol(newRol);
         return newUser;
     }
 
     @Override
     public Empleado updateEmpleado(int id, Empleado empleado) {
         Empleado usuario = findById(id);
-        Rol rol = new Rol();
+        Rol updateRol = new Rol();
+        Rol rol = empleado.getRol();
         usuario.setIdEmpleado(id);
-        usuario.setNombre(usuario.getNombre());
-        usuario.setApellido(usuario.getApellido());
-        usuario.setCedula(usuario.getCedula());
-        usuario.setCorreo(usuario.getCorreo());
-        usuario.setPassword(usuario.getPassword());
-        usuario.setEstado(usuario.isEstado());
-        rol.setIdRol(rol.getIdRol());
-        rol.setDescripcion(rol.getDescripcion());
-        rol.setEstado(rol.isEstado());
+        usuario.setNombre(empleado.getNombre());
+        usuario.setApellido(empleado.getApellido());
+        usuario.setCedula(empleado.getCedula());
+        usuario.setCorreo(empleado.getCorreo());
+        usuario.setPassword(empleado.getPassword());
+        usuario.setEstado(empleado.isEstado());
+        updateRol.setIdRol(rol.getIdRol());
+        updateRol.setDescripcion(rol.getDescripcion());
+        updateRol.setEstado(rol.isEstado());
+        usuario.setRol(updateRol);
         usuario.setEmpresa(empleado.getEmpresa());
         return usuario;
     }
