@@ -1,6 +1,6 @@
 package co.gov.misiontic.cartera.ingresoegreso.controller;
 
-import co.gov.misiontic.cartera.ingresoegreso.models.entity.MovimientoDinero;
+import co.gov.misiontic.cartera.ingresoegreso.entities.MovimientoDinero;
 import co.gov.misiontic.cartera.ingresoegreso.service.IMovimientoDineroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

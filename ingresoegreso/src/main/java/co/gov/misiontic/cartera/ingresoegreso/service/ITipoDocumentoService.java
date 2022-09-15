@@ -1,7 +1,6 @@
 package co.gov.misiontic.cartera.ingresoegreso.service;
 
-import co.gov.misiontic.cartera.ingresoegreso.models.entity.MovimientoDinero;
-import co.gov.misiontic.cartera.ingresoegreso.models.entity.TipoDocumento;
+import co.gov.misiontic.cartera.ingresoegreso.entities.TipoDocumento;
 
 import java.util.List;
 

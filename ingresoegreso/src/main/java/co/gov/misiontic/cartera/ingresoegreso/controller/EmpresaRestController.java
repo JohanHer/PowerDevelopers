@@ -1,12 +1,11 @@
 package co.gov.misiontic.cartera.ingresoegreso.controller;
 
 
-import co.gov.misiontic.cartera.ingresoegreso.models.entity.Empresa;
+import co.gov.misiontic.cartera.ingresoegreso.entities.Empresa;
 import co.gov.misiontic.cartera.ingresoegreso.service.IEmpresaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

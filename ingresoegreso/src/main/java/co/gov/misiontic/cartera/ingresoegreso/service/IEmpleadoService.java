@@ -1,7 +1,6 @@
 package co.gov.misiontic.cartera.ingresoegreso.service;
 
-import co.gov.misiontic.cartera.ingresoegreso.models.entity.Empleado;
-import co.gov.misiontic.cartera.ingresoegreso.models.entity.Rol;
+import co.gov.misiontic.cartera.ingresoegreso.entities.Empleado;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;

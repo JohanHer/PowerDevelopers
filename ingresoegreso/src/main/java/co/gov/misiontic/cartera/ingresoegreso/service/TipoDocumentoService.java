@@ -1,6 +1,6 @@
 package co.gov.misiontic.cartera.ingresoegreso.service;
 
-import co.gov.misiontic.cartera.ingresoegreso.models.entity.TipoDocumento;
+import co.gov.misiontic.cartera.ingresoegreso.entities.TipoDocumento;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

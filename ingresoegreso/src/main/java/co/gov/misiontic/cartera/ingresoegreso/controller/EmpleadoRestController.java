@@ -1,8 +1,7 @@
 package co.gov.misiontic.cartera.ingresoegreso.controller;
 
 
-import co.gov.misiontic.cartera.ingresoegreso.models.entity.Empleado;
-import co.gov.misiontic.cartera.ingresoegreso.models.entity.Rol;
+import co.gov.misiontic.cartera.ingresoegreso.entities.Empleado;
 import co.gov.misiontic.cartera.ingresoegreso.service.IEmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

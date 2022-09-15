@@ -1,9 +1,9 @@
 package co.gov.misiontic.cartera.ingresoegreso;
 
-import co.gov.misiontic.cartera.ingresoegreso.models.entity.Empleado;
-import co.gov.misiontic.cartera.ingresoegreso.models.entity.Empresa;
-import co.gov.misiontic.cartera.ingresoegreso.models.entity.MovimientoDinero;
-import co.gov.misiontic.cartera.ingresoegreso.models.entity.Rol;
+import co.gov.misiontic.cartera.ingresoegreso.entities.Empleado;
+import co.gov.misiontic.cartera.ingresoegreso.entities.Empresa;
+import co.gov.misiontic.cartera.ingresoegreso.entities.MovimientoDinero;
+import co.gov.misiontic.cartera.ingresoegreso.entities.Rol;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

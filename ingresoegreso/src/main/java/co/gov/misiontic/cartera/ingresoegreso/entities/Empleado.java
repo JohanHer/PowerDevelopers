@@ -1,10 +1,9 @@
-package co.gov.misiontic.cartera.ingresoegreso.models.entity;
+package co.gov.misiontic.cartera.ingresoegreso.entities;
 
 import lombok.Data;
 
 @Data
 public class Empleado {
-
     private long idEmpleado;
     private String nombre;
     private String apellido;
