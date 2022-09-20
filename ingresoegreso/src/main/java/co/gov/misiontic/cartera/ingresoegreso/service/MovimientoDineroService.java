@@ -1,58 +1,45 @@
 package co.gov.misiontic.cartera.ingresoegreso.service;
 
 import co.gov.misiontic.cartera.ingresoegreso.entities.MovimientoDinero;
+import co.gov.misiontic.cartera.ingresoegreso.repository.IMovdinRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MovimientoDineroService implements IMovimientoDineroService{
+    @Autowired
+    private IMovdinRepository movdinRepository;
     @Override
     public MovimientoDinero findId (int id) {
-        MovimientoDinero movimiento = new MovimientoDinero();
-        movimiento.setIdMovimiento(id);
-        movimiento.setMonto("999999999");
-        movimiento.setConcepto("Concepto");
-        movimiento.setUsuario("User");
-        return movimiento;
+        Optional<MovimientoDinero> movimiento = movdinRepository.findById((long)id);
+
+        return movimiento.get();
     }
 
     @Override
     public List<MovimientoDinero> findAll() {
-        List<MovimientoDinero> movimientos = new ArrayList<>();
-        for (int mov=1; mov<=200; mov++) {
-            MovimientoDinero movimiento = new MovimientoDinero();
-            movimiento.setIdMovimiento(mov);
-            movimiento.setMonto("999999999");
-            movimiento.setConcepto("Concepto");
-            movimiento.setUsuario("User");
-            movimientos.add(movimiento);
-        }
+        List<MovimientoDinero> movimientos = (List<MovimientoDinero>) movdinRepository.findAll();
+
         return movimientos;
     }
 
     @Override
     public MovimientoDinero createMovement(MovimientoDinero moneyMov) {
-        MovimientoDinero movimiento = new MovimientoDinero();
-        movimiento.setIdMovimiento(moneyMov.getIdMovimiento());
-        movimiento.setMonto(moneyMov.getMonto());
-        movimiento.setConcepto(moneyMov.getConcepto());
-        movimiento.setUsuario(moneyMov.getUsuario());
-        return movimiento;
+        MovimientoDinero newmovimiento = movdinRepository.save(moneyMov);
+
+        return newmovimiento;
     }
 
     @Override
     public MovimientoDinero updateMovement(int id, MovimientoDinero moneyMov) {
-        MovimientoDinero movimiento = findId(id);
-        movimiento.setUsuario(moneyMov.getUsuario());
-        movimiento.setConcepto(moneyMov.getConcepto());
-        movimiento.setMonto(moneyMov.getMonto());
-        return movimiento;
+        MovimientoDinero actmovimiento = movdinRepository.save(moneyMov);
+
+        return actmovimiento;
     }
 
     @Override
-    public void deleteMovement(int id) {
-        MovimientoDinero movimiento = findId(id);
-    }
+    public void deleteMovement(int id) { movdinRepository.deleteById((long)id); }
 }

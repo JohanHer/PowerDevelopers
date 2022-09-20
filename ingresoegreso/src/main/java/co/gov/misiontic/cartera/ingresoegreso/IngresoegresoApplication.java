@@ -3,7 +3,6 @@ package co.gov.misiontic.cartera.ingresoegreso;
 import co.gov.misiontic.cartera.ingresoegreso.entities.Empleado;
 import co.gov.misiontic.cartera.ingresoegreso.entities.Empresa;
 import co.gov.misiontic.cartera.ingresoegreso.entities.MovimientoDinero;
-import co.gov.misiontic.cartera.ingresoegreso.entities.Rol;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -25,18 +24,13 @@ public class IngresoegresoApplication {
 
 		//Empleado
 		Empleado usuario = new Empleado();
-		Rol rol = new Rol();
 		usuario.setIdEmpleado(1);
 		usuario.setNombre("Alfonso");
 		usuario.setCorreo("dilmervelanida@gmail.com");
 		usuario.setPassword("a1b2c3d4");
-		rol.setIdRol(1);
-		rol.setDescripcion("Admin");
-		rol.setEstado(true);
-		usuario.setRol(rol);
-		usuario.setEmpresa("POWER DEVELOPERS INC.");
-		System.out.println("Nombre: " + usuario.getNombre()+" Correo: "+ usuario.getCorreo()+"Empresa:" + usuario.getEmpresa());
-		System.out.println("Rol:" + usuario.getRol());
+		//usuario.setEmpresa("POWER DEVELOPERS INC.");
+		//System.out.println("Nombre: " + usuario.getNombre()+" Correo: "+ usuario.getCorreo()+"Empresa:" + usuario.getEmpresa());
+		//System.out.println("Rol:" + usuario.getRol());
 
 
 		//Movimiento
@@ -44,7 +38,7 @@ public class IngresoegresoApplication {
 		movimiento.setIdMovimiento(1);
 		movimiento.setMonto("100000");
 		movimiento.setConcepto("Servicios");
-		movimiento.setUsuario("Johan H");
+		//movimiento.setUsuario("Johan H");
 		System.out.println("get monto: " + movimiento.getMonto());
 		System.out.println(movimiento);
 	}
